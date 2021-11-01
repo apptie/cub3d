@@ -6,7 +6,7 @@
 /*   By: jimikim <jimikim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 13:50:43 by jimikim           #+#    #+#             */
-/*   Updated: 2021/10/05 09:30:00 by jimikim          ###   ########.fr       */
+/*   Updated: 2021/11/01 12:21:08 by jimikim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	set_cub_rgb_sub(char **rgb_split, char **file_split,
 	b = ft_atoi(rgb_split[2]);
 	free_double_malloc(rgb_split);
 	free_double_malloc(file_split);
+	if (r < 0 || g < 0 || b < 0 || r > 255 || g > 255 || b > 255)
+		print_error("invalid rgb value");
 	if (result == 0)
 		info->f_color = (r << 16) | (g << 8) | b;
 	else if (result == 1)
